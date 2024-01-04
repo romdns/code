@@ -439,7 +439,7 @@ if __name__ == '__main__':
             for step in tqdm(range(len(slices)), total=len(slices), ncols=70, leave=False, unit="b"):
                 try:
                     i = slices[step]
-                    X, X_mask, G, labels = data2.get_slice(i, vocab)
+                    X, X_mask, G, labels = test_data.get_slice(i, vocab)
                     labels_number = trans_to_device(torch.LongTensor([labels_idx.get(label_id) for label_id in labels]))
                     X = trans_to_device(torch.Tensor(X).long())
                     G = trans_to_device(torch.Tensor(G).float())
